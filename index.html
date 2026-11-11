@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create free custom QR codes instantly with QRHub. Customize colors, styles and logos, then download PNG, JPG or SVG." />
+  <meta name="theme-color" content="#05060b" />
+  <title>QRHub — Free Neon QR Code Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/qr-code-styling@1.9.2/lib/qr-code-styling.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="QRHub home"><span class="brand-mark">⌗</span><span>QR<span>Hub</span></span></a>
+    <nav>
+      <a href="#generator">Generator</a><a href="#tools">QR tools</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#blog">Blog</a>
+    </nav>
+    <a class="header-cta" href="#generator">Create QR <span>↗</span></a>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> FREE QR CODE STUDIO</div>
+        <h1>Create stunning<br><span>QR codes</span> instantly.</h1>
+        <p>Your all-in-one QR code studio. Customize, create and download beautiful QR codes in seconds — no account needed.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#generator">Generate QR Code <span>↗</span></a><a class="btn btn-ghost" href="#tools">Explore QR tools</a></div>
+        <div class="hero-proof"><span>✦ 100% free</span><span>⌁ No sign-up</span><span>◈ Private by design</span></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative QR code preview">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="floating-tag tag-top">✦ INSTANT GENERATION</div>
+        <div class="hero-qr-card"><div class="mini-qr" aria-hidden="true"><i></i><i></i><i></i><b></b></div><div class="hero-qr-label"><span class="live-dot"></span> Your next connection starts here</div></div>
+        <div class="floating-tag tag-bottom">QR<span>HUB</span> / 001</div>
+      </div>
+    </section>
+
+    <section class="generator-section section" id="generator">
+      <div class="section-heading"><div class="eyebrow">THE QR WORKSPACE</div><h2>Your QR. Your style.</h2><p>Enter your content, make it yours, and download in one click.</p></div>
+      <div class="generator-shell">
+        <div class="generator-panel">
+          <div class="panel-title"><div><span class="panel-icon">⌗</span><strong>QR Code Generator</strong></div><span class="free-pill">FREE FOREVER</span></div>
+          <label class="field-label" for="qrType">Choose QR type</label>
+          <select id="qrType" class="control">
+            <option value="url">Website / URL</option><option value="text">Plain text</option><option value="wifi">Wi-Fi</option>
+            <option value="email">Email</option><option value="phone">Phone number</option><option value="whatsapp">WhatsApp</option>
+            <option value="sms">SMS</option><option value="vcard">Contact / vCard</option><option value="location">Location</option>
+            <option value="pdf">PDF link</option><option value="social">Social media link</option>
+          </select>
+          <div id="dynamicFields" class="dynamic-fields"></div>
+          <div class="customize-heading"><span>Customize design</span><span class="muted">MAKE IT YOURS</span></div>
+          <div class="custom-grid">
+            <div><label class="field-label" for="qrColor">QR color</label><div class="color-control"><input id="qrColor" type="color" value="#00d9ff"><span id="qrColorText">#00D9FF</span></div></div>
+            <div><label class="field-label" for="bgColor">Background</label><div class="color-control"><input id="bgColor" type="color" value="#ffffff"><span id="bgColorText">#FFFFFF</span></div></div>
+          </div>
+          <div class="custom-grid">
+            <div><label class="field-label" for="qrStyle">QR style</label><select id="qrStyle" class="control"><option value="square">Square</option><option value="dots">Dots</option><option value="rounded">Rounded</option><option value="classy">Classy</option></select></div>
+            <div><label class="field-label" for="qrSize">Size: <span id="sizeValue">512</span> px</label><input id="qrSize" class="range" type="range" min="256" max="1024" step="128" value="512"></div>
+          </div>
+          <label class="field-label" for="logoUpload">Logo (optional) <span class="muted">PNG / JPG / SVG · up to 1 MB</span></label>
+          <label class="upload-box" for="logoUpload"><span class="upload-icon">＋</span><span><strong>Choose a logo</strong><small id="logoName">or drag and drop it here</small></span><input id="logoUpload" type="file" accept="image/png,image/jpeg,image/svg+xml"></label>
+          <div class="form-error" id="formError" role="alert"></div>
+          <button id="generateBtn" class="btn btn-primary generate-btn">Generate QR Code <span>✦</span></button>
+          <p class="privacy-note">◈ Your content stays in your browser. QRHub does not upload it.</p>
+        </div>
+        <div class="preview-panel">
+          <div class="preview-top"><div><span class="live-dot"></span><strong>Live preview</strong></div><span class="preview-status" id="previewStatus">READY TO CREATE</span></div>
+          <div class="qr-stage"><div id="qrPreview" class="qr-preview"><div class="placeholder-qr"><span>⌗</span><small>Your QR code<br>appears here</small></div></div></div>
+          <div class="preview-caption"><strong id="previewTitle">Your QR code, your identity.</strong><span id="previewDescription">Enter your details to see your custom QR code.</span></div>
+          <div class="download-row"><button class="download-btn" data-format="png" disabled>↓ PNG</button><button class="download-btn" data-format="jpeg" disabled>↓ JPG</button><button class="download-btn" data-format="svg" disabled>↓ SVG</button></div>
+          <p class="scan-tip">Tip: Test-scan your QR code before printing or sharing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tools-section" id="tools">
+      <div class="section-heading"><div class="eyebrow">ONE HUB. MANY POSSIBILITIES.</div><h2>Every QR code type you need.</h2><p>Pick a tool below. Each one loads directly into the generator.</p></div>
+      <div class="tools-grid">
+        <button class="tool-card" data-type="url"><span>↗</span><strong>Website URL</strong><small>Open any webpage</small></button>
+        <button class="tool-card" data-type="wifi"><span>⌁</span><strong>Wi-Fi</strong><small>Connect without typing</small></button>
+        <button class="tool-card" data-type="whatsapp"><span>◉</span><strong>WhatsApp</strong><small>Start a conversation</small></button>
+        <button class="tool-card" data-type="vcard"><span>▣</span><strong>Contact / vCard</strong><small>Share contact details</small></button>
+        <button class="tool-card" data-type="email"><span>✉</span><strong>Email</strong><small>Open a pre-filled email</small></button>
+        <button class="tool-card" data-type="phone"><span>⌕</span><strong>Phone</strong><small>Make calling easy</small></button>
+        <button class="tool-card" data-type="sms"><span>▤</span><strong>SMS</strong><small>Prepare a text message</small></button>
+        <button class="tool-card" data-type="location"><span>⌖</span><strong>Location</strong><small>Share a map location</small></button>
+        <button class="tool-card" data-type="text"><span>≡</span><strong>Plain text</strong><small>Share a short message</small></button>
+        <button class="tool-card" data-type="pdf"><span>▧</span><strong>PDF link</strong><small>Share a hosted document</small></button>
+        <button class="tool-card" data-type="social"><span>◎</span><strong>Social media</strong><small>Share your profile</small></button>
+      </div>
+    </section>
+
+    <section class="section how-section" id="how"><div class="section-heading"><div class="eyebrow">SIMPLE BY DESIGN</div><h2>Three steps. No account.</h2></div>
+      <div class="steps-grid"><article class="step-card"><span class="step-number">01</span><div class="step-icon">⌗</div><h3>Choose a type</h3><p>Pick URL, Wi-Fi, WhatsApp, vCard or any other QR code type.</p></article><article class="step-card"><span class="step-number">02</span><div class="step-icon">✧</div><h3>Customize</h3><p>Set colors, style, size and add your logo. Preview your design instantly.</p></article><article class="step-card"><span class="step-number">03</span><div class="step-icon">↓</div><h3>Download</h3><p>Save as PNG, JPG or SVG, free and without a watermark.</p></article></div>
+    </section>
+
+    <section class="section benefits-section"><div class="section-heading"><div class="eyebrow">BUILT FOR YOUR FLOW</div><h2>Why choose QRHub?</h2><p>A QR code maker that stays out of your way.</p></div>
+      <div class="benefits-grid"><article><span>∞</span><h3>Free forever</h3><p>No subscription, trial or paywall on your downloads.</p></article><article><span>◈</span><h3>Private by design</h3><p>Your data is converted into a QR code in your browser. Nothing is uploaded by QRHub.</p></article><article><span>⚡</span><h3>Instant</h3><p>No sign-up screens. Create and preview your QR code in moments.</p></article><article><span>◎</span><h3>Static & reliable</h3><p>Static QR codes store your information directly and do not depend on a QRHub redirect.</p></article></div>
+    </section>
+
+    <section class="section features-section"><div class="section-heading"><div class="eyebrow">MADE TO BE USEFUL</div><h2>Everything for a custom QR code.</h2><p>Ready for print, packaging, business cards or a screen.</p></div>
+      <div class="features-grid"><article><h3>Custom colors</h3><p>Match your brand with QR and background colors. Keep strong contrast for reliable scanning.</p></article><article><h3>Four visual styles</h3><p>Choose square, dots, rounded or classy modules, with clear finder patterns.</p></article><article><h3>Logo upload</h3><p>Add your logo in the center. Always test-scan a logo QR before printing.</p></article><article><h3>Vector SVG</h3><p>Download a scalable SVG file for crisp print layouts.</p></article><article><h3>Up to 1024 px</h3><p>Choose a suitable output size for your digital or print project.</p></article><article><h3>Mobile friendly</h3><p>Create QR codes on phones, tablets and desktop screens.</p></article></div>
+    </section>
+
+    <section class="section faq-section" id="faq"><div class="section-heading"><div class="eyebrow">GOOD TO KNOW</div><h2>Frequently asked questions.</h2><p>Quick answers about the QRHub generator.</p></div>
+      <div class="faq-list">
+        <details><summary>Is QRHub really free?</summary><p>Yes. QR code generation and downloads are free, with no watermark, subscription or registration.</p></details>
+        <details><summary>Do I need to sign up?</summary><p>No. Open the page, create your QR code and download it.</p></details>
+        <details><summary>Do QR codes expire?</summary><p>QRHub creates static QR codes. They do not expire on a QRHub schedule, but the destination or linked content can change or become unavailable.</p></details>
+        <details><summary>Which formats can I download?</summary><p>PNG, JPG and SVG. SVG is useful for print and PNG is useful for web and everyday sharing.</p></details>
+        <details><summary>Can I add a logo?</summary><p>Yes. Upload an image to place it in the center. Always test-scan the finished code before printing.</p></details>
+        <details><summary>How does the PDF QR code work?</summary><p>Upload your PDF to a file host that provides a public link, then paste that link into the PDF QR tool.</p></details>
+      </div>
+    </section>
+
+    <section class="section blog-section" id="blog"><div class="section-heading"><div class="eyebrow">THE QRHUB JOURNAL</div><h2>QR code guides.</h2><p>Simple tips to help you get more from QR codes.</p></div>
+      <div class="blog-grid"><article><div class="blog-art art-one">⌗</div><div class="blog-content"><span>BEGINNER GUIDE</span><h3>How to make a QR code for free</h3><p>Choose a type, enter your content, customize and download. Test it with your phone camera before sharing.</p></div></article><article><div class="blog-art art-two">⌁</div><div class="blog-content"><span>QUICK HOW-TO</span><h3>Share Wi-Fi with a QR code</h3><p>Enter your network name, password and security type. Guests can scan to connect without typing.</p></div></article><article><div class="blog-art art-three">▧</div><div class="blog-content"><span>PRINT CHECKLIST</span><h3>Tips for scannable QR codes</h3><p>Use strong contrast, leave a clear quiet zone and test the printed size with multiple phones.</p></div></article></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-main"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark">⌗</span><span>QR<span>Hub</span></span></a><p>Free, futuristic QR code generator.<br>No sign-up. No watermark.</p></div><div><h4>Explore</h4><a href="#generator">Generator</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#blog">Blog</a></div><div><h4>Popular tools</h4><a href="#tools" data-footer-type="url">URL QR Code</a><a href="#tools" data-footer-type="wifi">Wi-Fi QR Code</a><a href="#tools" data-footer-type="whatsapp">WhatsApp QR Code</a><a href="#tools" data-footer-type="vcard">vCard QR Code</a></div><div><h4>Share QRHub</h4><a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=Create%20free%20custom%20QR%20codes%20with%20QRHub">Share on X ↗</a><a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=">Share on Facebook ↗</a><a target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/">Share on LinkedIn ↗</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> QRHub. All rights reserved.</span><span>Made for a more connected world <b>✦</b></span></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
