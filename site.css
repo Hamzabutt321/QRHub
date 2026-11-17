@@ -1,0 +1,60 @@
+/* QRHub shared layer — load AFTER style.css on every page */
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.brand img{display:block;border-radius:10px}
+/* ---- Unified button system ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 22px;border-radius:12px;border:1px solid transparent;font-size:13px;font-weight:700;line-height:1;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;text-decoration:none}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-primary{color:#001017;background:linear-gradient(100deg,#00d9ff,#8aa4ff);box-shadow:0 0 22px rgba(0,217,255,.2)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(0,217,255,.42)}
+.btn-ghost{color:#e4e9f6;border-color:var(--line);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--purple);background:rgba(168,85,247,.1);transform:translateY(-2px)}
+.btn-sm{min-height:38px;padding:0 16px;font-size:12px}
+.btn-block{width:100%}
+.btn:disabled,.download-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.download-row{grid-template-columns:repeat(4,1fr)}
+.download-btn{min-height:44px;border-radius:12px;font-size:12px;transition:transform .2s,background .2s,box-shadow .2s}
+.download-btn:hover:not(:disabled){transform:translateY(-2px)}
+.site-header .header-cta{border:0;background:linear-gradient(100deg,#00d9ff,#8aa4ff);color:#001017;padding:0 16px}
+.link-btn{display:block;background:none;border:0;padding:0;margin:9px 0;color:#8e9ab0;font:inherit;font-size:12px;cursor:pointer}
+.link-btn:hover{color:var(--cyan)}
+.site-footer a:not(.brand){font-size:12px}
+/* readability */
+.field-label{font-size:12px}.preview-caption span{font-size:12px}.privacy-note,.scan-tip,.upload-box small{font-size:11px}
+.dynamic-fields small{display:block;font-size:11px;color:#8a97ad;margin-top:6px}
+.dynamic-fields .field-wrap label.field-label{margin-top:17px}
+textarea.control{height:auto;min-height:120px;padding:11px 12px;resize:vertical}
+input.control{padding:0 12px}
+/* payment note */
+.pay-note{margin:14px 0 0;padding:12px 14px;border:1px solid rgba(168,85,247,.35);border-left:3px solid var(--purple);background:rgba(168,85,247,.07);border-radius:10px;font-size:12px;color:#d5c6f5;line-height:1.6}
+/* forms / messages */
+.form-msg{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.5}
+.form-msg.ok{color:#9dffd3;background:rgba(53,230,162,.09);border:1px solid rgba(53,230,162,.4)}
+.form-msg.err{color:#ffb3c3;background:rgba(255,100,130,.09);border:1px solid rgba(255,100,130,.4)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+/* feedback */
+.fb-fab{position:fixed;right:18px;bottom:18px;z-index:40;box-shadow:0 6px 24px rgba(0,0,0,.45)}
+#feedbackDialog{background:#0b0e18;color:var(--text);border:1px solid rgba(0,217,255,.28);border-radius:16px;padding:26px;width:min(440px,92vw);box-shadow:0 0 60px rgba(0,217,255,.12)}
+#feedbackDialog::backdrop{background:rgba(0,0,0,.7)}
+#feedbackDialog h2{margin:0 0 4px;font-size:20px;letter-spacing:-.5px}.fb-sub{margin:0;color:var(--muted);font-size:13px}
+.fb-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+/* new pages */
+.page-hero{max-width:860px;margin:auto;padding:70px 28px 10px;text-align:center}
+.page-hero .eyebrow{justify-content:center}
+.page-hero h1{font-size:clamp(34px,5vw,56px);line-height:1.1;letter-spacing:-2.4px;margin:18px 0 14px}
+.page-hero h1 span{background:linear-gradient(90deg,var(--cyan),#9b7bff 65%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.page-hero p{color:var(--muted);font-size:16px;max-width:640px;margin:auto}
+.ad-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.ad-card{padding:24px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,rgba(18,24,40,.9),rgba(9,12,21,.9));transition:.25s}
+.ad-card:hover{border-color:rgba(0,217,255,.5);transform:translateY(-3px)}
+.ad-card h3{margin:0 0 8px;font-size:16px}.ad-card p{margin:0;font-size:13px;color:var(--muted);line-height:1.7}
+.ad-card .eyebrow{margin-bottom:12px}
+.ad-form-wrap{max-width:760px;margin:auto;padding:30px;border:1px solid rgba(0,217,255,.2);border-radius:18px;background:rgba(9,13,23,.88);box-shadow:0 0 28px rgba(0,217,255,.09)}
+.ad-form{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.ad-form .full{grid-column:1/-1}.ad-form button{margin-top:22px}
+.ad-note{font-size:12px;color:#8a97ad;margin-top:14px;text-align:center}
+.bc-opts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.check{display:flex;gap:8px;align-items:center;font-size:13px;color:#d6deed;margin-top:18px}
+@media(max-width:1000px){
+ .site-header nav{display:none;position:absolute;top:77px;left:0;right:0;z-index:30;background:#090d18;padding:18px 28px;flex-direction:column;gap:18px;font-size:14px;border-bottom:1px solid var(--line)}
+ .site-header nav.open{display:flex}.menu-toggle{display:block;margin-left:12px}.header-cta{margin-left:auto}}
+@media(max-width:650px){.ad-form,.bc-opts{grid-template-columns:1fr}.download-row{grid-template-columns:repeat(2,1fr)}.ad-form-wrap{padding:20px}.page-hero{padding-top:50px}.site-header nav{top:67px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
