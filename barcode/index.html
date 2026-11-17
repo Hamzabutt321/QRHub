@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#05060b"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/site.css"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+<title>Free Barcode Generator: CODE128, EAN-13, UPC-A, CODE39 | QRHub</title>
+<meta name="description" content="Create CODE128, EAN-13, UPC-A and CODE39 barcodes online. Customize colors and size, then download PNG, JPG, SVG or PDF.">
+<link rel="canonical" href="https://qrhub-dz2.pages.dev/barcode/">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+<script defer src="/layout.js"></script><script defer src="/barcode/barcode.js"></script>
+</head><body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<div id="site-header"></div>
+<main>
+<section class="page-hero"><div class="eyebrow"><span class="pulse"></span> BARCODE STUDIO</div><h1>Free <span>barcode</span> generator.</h1><p>Create CODE128, EAN-13, UPC-A and CODE39 barcodes in your browser. Nothing is uploaded.</p></section>
+<section class="section generator-section" id="barcode-generator"><div class="generator-shell">
+ <div class="generator-panel">
+  <div class="panel-title"><div><span class="panel-icon">▥</span><strong>Barcode Generator</strong></div><span class="free-pill">FREE FOREVER</span></div>
+  <label class="field-label" for="bcFormat">Format</label>
+  <select id="bcFormat" class="control"><option value="CODE128">CODE128 (text &amp; numbers)</option><option value="EAN13">EAN-13 (retail)</option><option value="UPC">UPC-A (retail)</option><option value="CODE39">CODE39</option></select>
+  <label class="field-label" for="bcValue">Value</label>
+  <input id="bcValue" class="control" type="text" autocomplete="off" maxlength="80">
+  <small class="muted" id="bcHint"></small>
+  <div class="customize-heading"><span>Customize design</span><span class="muted">MAKE IT YOURS</span></div>
+  <div class="custom-grid">
+   <div><label class="field-label" for="bcColor">Bar color</label><div class="color-control"><input id="bcColor" type="color" value="#000000"><span id="bcColorText">#000000</span></div></div>
+   <div><label class="field-label" for="bcBg">Background</label><div class="color-control"><input id="bcBg" type="color" value="#ffffff"><span id="bcBgText">#FFFFFF</span></div></div>
+  </div>
+  <div class="custom-grid">
+   <div><label class="field-label" for="bcWidth">Bar width</label><select id="bcWidth" class="control"><option value="1">Small (1x)</option><option value="2" selected>Medium (2x)</option><option value="3">Large (3x)</option><option value="4">Extra large (4x)</option></select></div>
+   <div><label class="field-label" for="bcHeight">Height: <span id="bcHVal">100</span> px</label><input id="bcHeight" class="range" type="range" min="40" max="200" step="10" value="100"></div>
+  </div>
+  <label class="check"><input id="bcText" type="checkbox" checked> Show number under bars</label>
+  <div class="form-error" id="bcError" role="alert"></div>
+  <button id="bcGenerate" class="btn btn-primary btn-block" type="button">Generate Barcode <span>✦</span></button>
+  <p class="privacy-note">◈ Your data stays in your browser.</p>
+ </div>
+ <div class="preview-panel">
+  <div class="preview-top"><div><span class="live-dot"></span><strong>Live preview</strong></div><span class="preview-status" id="bcStatus">READY</span></div>
+  <div class="qr-stage"><div id="bcPreview" class="qr-preview"><svg id="bcSvg" role="img" aria-label="Generated barcode"></svg></div></div>
+  <div class="download-row">
+   <button class="download-btn" data-format="png" disabled>↓ PNG</button><button class="download-btn" data-format="jpeg" disabled>↓ JPG</button>
+   <button class="download-btn" data-format="svg" disabled>↓ SVG</button><button class="download-btn" data-format="pdf" disabled>↓ PDF</button>
+  </div>
+  <p class="scan-tip">Tip: use dark bars on a light background and test-scan before printing.</p>
+ </div>
+</div></section>
+</main>
+<div id="site-footer"></div>
+</body></html>
