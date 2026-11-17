@@ -28,6 +28,16 @@
    <div><label class="field-label" for="bcHeight">Height: <span id="bcHVal">100</span> px</label><input id="bcHeight" class="range" type="range" min="40" max="200" step="10" value="100"></div>
   </div>
   <label class="check"><input id="bcText" type="checkbox" checked> Show number under bars</label>
+  <div class="logo-upload">
+  <label class="field-label" for="bcLogo">Add your logo (optional)</label>
+  <input
+    id="bcLogo"
+    class="control"
+    type="file"
+    accept="image/png,image/jpeg,image/svg+xml"
+  >
+  <small class="muted">PNG, JPG or SVG · Max 1 MB · Logo appears above barcode</small>
+</div>
   <div class="form-error" id="bcError" role="alert"></div>
   <button id="bcGenerate" class="btn btn-primary btn-block" type="button">Generate Barcode <span>✦</span></button>
   <p class="privacy-note">◈ Your data stays in your browser.</p>
